@@ -726,6 +726,7 @@
             height: 64px;
             margin-bottom: 24px;
             animation: spin 2s linear infinite;
+            object-fit: contain;
         }
         
         @keyframes spin {
@@ -1547,14 +1548,7 @@
             <!-- Loading Overlay -->
             <div class="loading-overlay" id="loadingOverlay">
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <svg class="trillium-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Trillium flower - three petals -->
-                        <path d="M50 20 L65 45 L50 80 L35 45 Z" fill="var(--red)" opacity="0.9"/>
-                        <path d="M50 20 L35 45 L20 30 L35 15 Z" fill="var(--red)" opacity="0.9" transform="rotate(-60 50 50)"/>
-                        <path d="M50 20 L65 45 L80 30 L65 15 Z" fill="var(--red)" opacity="0.9" transform="rotate(60 50 50)"/>
-                        <!-- Center -->
-                        <circle cx="50" cy="45" r="8" fill="var(--black)"/>
-                    </svg>
+                    <img src="Trillium.png" alt="Loading" class="trillium-icon">
                     <p style="font-family: var(--option-font); font-weight: 300; color: var(--text-light); margin-top: 16px;">Submitting your responses...</p>
                 </div>
             </div>
