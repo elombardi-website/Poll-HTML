@@ -1741,6 +1741,8 @@
             const question = document.querySelector(`[data-question="${num}"]`);
             if (question) {
                 question.classList.add('active');
+                // Sync visual state with checked state
+                syncOptionVisualState(question);
             }
             
             currentQuestion = num;
@@ -1755,6 +1757,42 @@
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Sync the selected class with the actual checked state of radio buttons and checkboxes
+        function syncOptionVisualState(container) {
+            // Handle radio buttons
+            container.querySelectorAll('input[type="radio"]').forEach(radio => {
+                const optionItem = radio.closest('.option-item');
+                if (optionItem) {
+                    if (radio.checked) {
+                        // Remove selected from siblings
+                        const optionsContainer = radio.closest('.options-container') || radio.closest('.multi-item-options');
+                        if (optionsContainer) {
+                            optionsContainer.querySelectorAll('.option-item').forEach(sibling => {
+                                sibling.classList.remove('selected');
+                            });
+                        }
+                        // Add selected to this item
+                        optionItem.classList.add('selected');
+                    } else {
+                        // Only remove if not checked (don't remove if another in group is checked)
+                        optionItem.classList.remove('selected');
+                    }
+                }
+            });
+            
+            // Handle checkboxes
+            container.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                const optionItem = checkbox.closest('.option-item');
+                if (optionItem) {
+                    if (checkbox.checked) {
+                        optionItem.classList.add('selected');
+                    } else {
+                        optionItem.classList.remove('selected');
+                    }
+                }
+            });
         }
         
         function nextQuestion() {
@@ -1927,7 +1965,7 @@
                         <span class="ranking-remove" onclick="event.stopPropagation(); removeFromRanking('${option}')">Remove</span>
                     `;
                     
-                    // Drag and drop event handlers
+                    // Drag and drop event handlers (for desktop)
                     item.addEventListener('dragstart', function(e) {
                         this.classList.add('dragging');
                         e.dataTransfer.effectAllowed = 'move';
@@ -1937,6 +1975,10 @@
                     
                     item.addEventListener('dragend', function() {
                         this.classList.remove('dragging');
+                        // Reset border colors on all items
+                        rankedSection.querySelectorAll('.ranking-item').forEach(i => {
+                            i.style.borderColor = '';
+                        });
                     });
                     
                     item.addEventListener('dragover', function(e) {
@@ -1952,7 +1994,7 @@
                     });
                     
                     item.addEventListener('dragleave', function() {
-                        this.style.borderColor = 'var(--grey)';
+                        this.style.borderColor = '';
                     });
                     
                     item.addEventListener('drop', function(e) {
@@ -1975,9 +2017,125 @@
                             triggerPartialSave();
                         }
                         
-                        this.style.borderColor = 'var(--grey)';
+                        this.style.borderColor = '';
                         return false;
                     });
+                    
+                    // Touch event handlers for mobile drag and drop
+                    let touchStartY = 0;
+                    let touchStartIndex = 0;
+                    let touchCurrentIndex = 0;
+                    let isDragging = false;
+                    
+                    item.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        touchStartY = e.touches[0].clientY;
+                        touchStartIndex = parseInt(this.dataset.index);
+                        touchCurrentIndex = touchStartIndex;
+                        isDragging = false;
+                        this.classList.add('dragging');
+                    }, { passive: false });
+                    
+                    item.addEventListener('touchmove', function(e) {
+                        e.preventDefault();
+                        if (!touchStartY) return;
+                        
+                        const touchY = e.touches[0].clientY;
+                        const deltaY = touchY - touchStartY;
+                        
+                        // Only start dragging if moved more than 10px
+                        if (Math.abs(deltaY) > 10) {
+                            isDragging = true;
+                            
+                            // Find the ranked section container
+                            const section = this.closest('.ranking-ranked');
+                            if (!section) return;
+                            
+                            // Find which item the touch is over using elementFromPoint
+                            const touchElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+                            const targetItem = touchElement ? touchElement.closest('.ranking-item') : null;
+                            
+                            if (targetItem && targetItem !== this) {
+                                const allItems = Array.from(section.querySelectorAll('.ranking-item'));
+                                const newIndex = parseInt(targetItem.dataset.index);
+                                
+                                if (newIndex !== touchCurrentIndex && !isNaN(newIndex)) {
+                                    touchCurrentIndex = newIndex;
+                                    
+                                    // Reset all borders
+                                    allItems.forEach(i => {
+                                        i.style.borderColor = '';
+                                    });
+                                    
+                                    // Highlight the target position
+                                    if (touchCurrentIndex !== touchStartIndex) {
+                                        targetItem.style.borderColor = 'var(--red)';
+                                    }
+                                }
+                            } else if (!targetItem) {
+                                // If not over any item, calculate based on position
+                                const allItems = Array.from(section.querySelectorAll('.ranking-item'));
+                                const itemHeight = this.offsetHeight + 12; // include gap
+                                const newIndex = Math.round(touchStartIndex + (deltaY / itemHeight));
+                                const clampedIndex = Math.max(0, Math.min(allItems.length - 1, newIndex));
+                                
+                                if (clampedIndex !== touchCurrentIndex) {
+                                    touchCurrentIndex = clampedIndex;
+                                    
+                                    // Reset all borders
+                                    allItems.forEach(i => {
+                                        i.style.borderColor = '';
+                                    });
+                                    
+                                    // Highlight the target position
+                                    if (touchCurrentIndex !== touchStartIndex) {
+                                        allItems[touchCurrentIndex].style.borderColor = 'var(--red)';
+                                    }
+                                }
+                            }
+                        }
+                    }, { passive: false });
+                    
+                    item.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        
+                        if (isDragging && touchCurrentIndex !== touchStartIndex) {
+                            // Reorder the array
+                            const draggedItem = q2Selected[touchStartIndex];
+                            q2Selected.splice(touchStartIndex, 1);
+                            q2Selected.splice(touchCurrentIndex, 0, draggedItem);
+                            
+                            // Update display
+                            updateRankingDisplay();
+                            // Trigger partial save
+                            triggerPartialSave();
+                        } else {
+                            // Reset borders if no reorder happened
+                            const section = this.closest('.ranking-ranked');
+                            if (section) {
+                                section.querySelectorAll('.ranking-item').forEach(i => {
+                                    i.style.borderColor = '';
+                                });
+                            }
+                        }
+                        
+                        this.classList.remove('dragging');
+                        touchStartY = 0;
+                        isDragging = false;
+                    }, { passive: false });
+                    
+                    item.addEventListener('touchcancel', function(e) {
+                        e.preventDefault();
+                        this.classList.remove('dragging');
+                        const section = this.closest('.ranking-ranked');
+                        if (section) {
+                            section.querySelectorAll('.ranking-item').forEach(i => {
+                                i.style.borderColor = '';
+                            });
+                        }
+                        touchStartY = 0;
+                        isDragging = false;
+                    }, { passive: false });
                     
                     rankedSection.appendChild(item);
                 });
