@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontario Provincial Issues Survey</title>
+    <style>
+        /* ============================================
+           FONT CONFIGURATION - CUSTOM FONTS
+           ============================================ */
+        
+        /* PP Acma Font Family */
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Thin.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Thin.otf') format('opentype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Light.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Book.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Book.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Medium.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Semibold.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Bold.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Acma';
+            src: url('fonts/custom/PP Acma/PPAcma-Black.woff2') format('woff2'),
+                 url('fonts/custom/PP Acma/PPAcma-Black.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* PP Pangram Sans Font Family */
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Thin.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Thin.otf') format('opentype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Light.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Regular.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Medium.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Semibold.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Bold.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Pangram Sans';
+            src: url('fonts/custom/PP Pangram Sans/PPPangramSans-Extrabold.woff2') format('woff2'),
+                 url('fonts/custom/PP Pangram Sans/PPPangramSans-Extrabold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* PP Watch Font Family */
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Thin.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Thin.otf') format('opentype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Extralight.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Extralight.otf') format('opentype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Regular.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Medium.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Semibold.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Bold.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'PP Watch';
+            src: url('fonts/custom/PP Watch/PPWatch-Black.woff2') format('woff2'),
+                 url('fonts/custom/PP Watch/PPWatch-Black.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Font Variables */
+        :root {
+            --title-font: var(--font-family-title);
+            --question-font: var(--font-family-subheader);
+            --option-font: var(--font-family-body);
+            --body-font: var(--font-family-body);
+            
+            /* Color Variables - Brand Colors */
+            --black: #101010;
+            --red: #E81E25;
+            --white: #F2F4F7;
+            --grey: #2D2D2D;
+            
+            /* Applied Colors */
+            --primary-color: #E81E25; /* Red for accents (same as --red) */
+            --text-color: #101010; /* Black for most text */
+            --text-light: #2D2D2D; /* Grey for secondary text */
+            --bg-color: #F2F4F7; /* White for backgrounds */
+            --border-color: #2D2D2D; /* Grey for borders */
+            --error-color: #E81E25;
+            --success-color: #10b981;
+        }
+        
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ============================================
+           FORM CONTAINER
+           ============================================ */
+        .form-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .form-container {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .progress-container {
+            margin-bottom: 32px;
+            background: rgba(45, 45, 45, 0.1);
+            border-radius: 8px;
+            height: 8px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--red);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-family: var(--option-font);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey);
+            margin-bottom: 32px;
+        }
+        
+        /* Question Container */
+        .question-container {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+        
+        .question-container.active {
+            display: block;
+        }
+        
+        /* Intro Container */
+        .intro-container {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 0.4s ease-in;
+        }
+        
+        .intro-container.active {
+            display: block;
+        }
+        
+        .intro-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            object-fit: cover;
+            margin: 0 auto 48px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--grey);
+        }
+        
+        .intro-title {
+            font-family: var(--title-font);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .intro-text {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        /* Form Input Fields */
+        .form-input-field {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            background-color: var(--white);
+            border: 2px solid var(--grey);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-bottom: 16px;
+        }
+        
+        .form-input-field:hover {
+            border-color: var(--red);
+        }
+        
+        .form-input-field:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(232, 30, 37, 0.1);
+        }
+        
+        .form-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .form-input-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-input-label {
+            display: block;
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+        
+        .form-input-label .required {
+            color: var(--error-color);
+            margin-left: 4px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .question-title {
+            font-family: var(--title-font);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        /* Question number (Q1., Q2., etc.) styled in red */
+        .question-number {
+            color: var(--red);
+        }
+        
+        .question-text {
+            font-family: var(--question-font);
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        
+        .question-instruction {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--grey);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        /* Options Container */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid var(--grey);
+            border-radius: 8px;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option-item:hover {
+            border-color: var(--red);
+            background: rgba(232, 30, 37, 0.02); /* Very light red tint */
+        }
+        
+        .option-item.selected {
+            border-color: var(--red);
+            background: rgba(232, 30, 37, 0.05); /* Light red tint */
+        }
+        
+        .option-item input[type="radio"],
+        .option-item input[type="checkbox"] {
+            margin-top: 2px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: var(--red);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        .option-item input[type="radio"] {
+            border-radius: 50%;
+            border: 2px solid var(--grey);
+            background: var(--white);
+        }
+        
+        .option-item input[type="radio"]:checked {
+            background: var(--red);
+            border-color: var(--red);
+            background-image: radial-gradient(circle, var(--white) 35%, var(--red) 35%);
+        }
+        
+        .option-item input[type="checkbox"] {
+            border-radius: 4px;
+            border: 2px solid var(--grey);
+            background: var(--white);
+        }
+        
+        .option-item input[type="checkbox"]:checked {
+            background: var(--red);
+            border-color: var(--red);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M10 3L4.5 8.5 2 6' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px;
+        }
+        
+        .option-item label {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            cursor: pointer;
+            flex: 1;
+            line-height: 1.5;
+        }
+        
+        .option-label {
+            font-weight: 500;
+            margin-right: 4px;
+        }
+        
+        /* Multi-Item Questions (Q1) */
+        .multi-item-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .multi-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .multi-item-label {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+        
+        .multi-item-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        /* Ranking (Q2) */
+        .ranking-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid var(--grey);
+            border-radius: 8px;
+            background: var(--white);
+            cursor: move;
+            transition: all 0.2s ease;
+        }
+        
+        .ranking-item:hover {
+            border-color: var(--red);
+            background: rgba(232, 30, 37, 0.02); /* Very light red tint */
+        }
+        
+        .ranking-item[draggable="true"] {
+            cursor: grab;
+        }
+        
+        .ranking-item[draggable="true"]:active {
+            cursor: grabbing;
+        }
+        
+        .ranking-item.dragging {
+            opacity: 0.5;
+        }
+        
+        .ranking-number {
+            font-family: var(--title-font);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .ranking-item label {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--black);
+            flex: 1;
+            cursor: grab;
+            user-select: none;
+        }
+        
+        .ranking-item.dragging label {
+            cursor: grabbing;
+        }
+        
+        .ranking-remove {
+            font-family: var(--option-font);
+            font-size: 14px;
+            color: var(--grey);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        
+        .ranking-remove:hover {
+            background: rgba(232, 30, 37, 0.1);
+        }
+        
+        .ranking-ranked {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .ranking-available {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--grey);
+        }
+        
+        .ranking-available-title {
+            font-family: var(--question-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--grey);
+            margin-bottom: 12px;
+        }
+        
+        /* Text Input */
+        .text-input {
+            width: 100%;
+            padding: 16px;
+            font-family: var(--option-font);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            background-color: var(--white);
+            border: 2px solid var(--grey);
+            border-radius: 8px;
+            min-height: 120px;
+            resize: vertical;
+            margin-bottom: 32px;
+            transition: all 0.2s ease;
+        }
+        
+        .text-input:hover {
+            border-color: var(--red);
+        }
+        
+        .text-input:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(232, 30, 37, 0.1);
+        }
+        
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--grey);
+            justify-content: space-between;
+        }
+        
+        .intro-container .nav-buttons {
+            justify-content: center;
+            border-top: none;
+        }
+        
+        .nav-button {
+            padding: 14px 32px;
+            font-family: var(--option-font);
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-button-primary {
+            background: var(--red);
+            color: var(--white);
+        }
+        
+        .nav-button-primary:hover {
+            background: #c4161d;
+        }
+        
+        .nav-button-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--grey);
+        }
+        
+        .nav-button-secondary:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+        
+        /* Success Message */
+        .success-container {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+        
+        .success-container.active {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 64px;
+            color: var(--success-color);
+            margin-bottom: 24px;
+        }
+        
+        .success-title {
+            font-family: var(--title-font);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+        
+        .success-message {
+            font-family: var(--option-font);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--grey);
+            line-height: 1.6;
+        }
+        
+        /* Loading State */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 244, 247, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 40px 20px;
+            }
+            
+            .intro-title {
+                font-size: 28px;
+            }
+            
+            .question-title {
+                font-size: 24px;
+            }
+            
+            .question-text {
+                font-size: 18px;
+            }
+            
+            .form-container {
+                padding: 20px 16px;
+            }
+            
+            .intro-title {
+                font-size: 28px;
+            }
+            
+            .intro-text {
+                font-size: 16px;
+            }
+            
+            .intro-image {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 32px;
+            }
+            
+            .form-input-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+            
+            .nav-button {
+                width: 100%;
+            }
+            
+            /* Reverse button order on mobile: Next before Previous */
+            .nav-button-primary {
+                order: -1;
+            }
+            
+            .nav-button-secondary {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText"></div>
+            
+            <!-- Intro/Welcome Page -->
+            <div class="intro-container active" data-question="0">
+                <img src="https://cdn.prod.website-files.com/697130eda1bfecc9f848bc06/6976c68c17ac6da90759a951_EricSquare.png" alt="Eric Lombardi" class="intro-image" id="introImage">
+                <h1 class="intro-title">Eric Lombardi's Ontario Issues and Priorities Survey</h1>
+                <p class="intro-text">I'm a bit of a policy dork, and I care deeply about how Ontario actually works. Before advancing ideas or solutions, I want to understand where you stand on the issues that affect your life.</p>
+                <div class="nav-buttons" style="justify-content: center;">
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Begin Survey</button>
+                </div>
+            </div>
+            
+            <!-- Q1: Direction by Issue Area -->
+            <div class="question-container" data-question="1">
+                <h1 class="question-title"><span class="question-number">Q1.</span> Direction by Issue Area</h1>
+                <p class="question-text">Do you think Ontario is heading in the right direction or wrong direction on each of the following?</p>
+                
+                <div class="multi-item-container" id="q1-container">
+                    <div class="multi-item">
+                        <div class="multi-item-label">Healthcare (access, wait times, staffing)</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_healthcare" id="q1_healthcare_right" value="Right direction">
+                                <label for="q1_healthcare_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_healthcare" id="q1_healthcare_wrong" value="Wrong direction">
+                                <label for="q1_healthcare_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_healthcare" id="q1_healthcare_unsure" value="Not sure">
+                                <label for="q1_healthcare_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Education (public schools, post-secondary, skills training)</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_education" id="q1_education_right" value="Right direction">
+                                <label for="q1_education_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_education" id="q1_education_wrong" value="Wrong direction">
+                                <label for="q1_education_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_education" id="q1_education_unsure" value="Not sure">
+                                <label for="q1_education_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Housing affordability</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_housing" id="q1_housing_right" value="Right direction">
+                                <label for="q1_housing_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_housing" id="q1_housing_wrong" value="Wrong direction">
+                                <label for="q1_housing_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_housing" id="q1_housing_unsure" value="Not sure">
+                                <label for="q1_housing_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Transportation and congestion</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_transportation" id="q1_transportation_right" value="Right direction">
+                                <label for="q1_transportation_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_transportation" id="q1_transportation_wrong" value="Wrong direction">
+                                <label for="q1_transportation_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_transportation" id="q1_transportation_unsure" value="Not sure">
+                                <label for="q1_transportation_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Energy affordability and reliability</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_energy" id="q1_energy_right" value="Right direction">
+                                <label for="q1_energy_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_energy" id="q1_energy_wrong" value="Wrong direction">
+                                <label for="q1_energy_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_energy" id="q1_energy_unsure" value="Not sure">
+                                <label for="q1_energy_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Climate change and environmental protection</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_climate" id="q1_climate_right" value="Right direction">
+                                <label for="q1_climate_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_climate" id="q1_climate_wrong" value="Wrong direction">
+                                <label for="q1_climate_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_climate" id="q1_climate_unsure" value="Not sure">
+                                <label for="q1_climate_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Provincial infrastructure</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_infrastructure" id="q1_infrastructure_right" value="Right direction">
+                                <label for="q1_infrastructure_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_infrastructure" id="q1_infrastructure_wrong" value="Wrong direction">
+                                <label for="q1_infrastructure_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_infrastructure" id="q1_infrastructure_unsure" value="Not sure">
+                                <label for="q1_infrastructure_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="multi-item">
+                        <div class="multi-item-label">Cost of living and household affordability</div>
+                        <div class="multi-item-options">
+                            <div class="option-item">
+                                <input type="radio" name="q1_cost" id="q1_cost_right" value="Right direction">
+                                <label for="q1_cost_right">Right direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_cost" id="q1_cost_wrong" value="Wrong direction">
+                                <label for="q1_cost_wrong">Wrong direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1_cost" id="q1_cost_unsure" value="Not sure">
+                                <label for="q1_cost_unsure">Not sure</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q2: Top Priorities (Ranking) -->
+            <div class="question-container" data-question="2">
+                <h1 class="question-title"><span class="question-number">Q2.</span> Top Priorities for the Provincial Government</h1>
+                <p class="question-text">Which of the following issues should be the highest priorities for the Government of Ontario?</p>
+                <p class="question-instruction">Please rank up to three, in order of importance.</p>
+                
+                <div class="ranking-container" id="q2-ranking">
+                    <div class="ranking-available-title">Your top 3 priorities (drag to reorder).</div>
+                    <div id="q2-available" class="ranking-available"></div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q3: Open-Ended -->
+            <div class="question-container" data-question="3">
+                <h1 class="question-title"><span class="question-number">Q3.</span> Issues That Matter Most</h1>
+                <p class="question-text">Before thinking about specific policies or solutions, what are some of the most important issues facing Ontario today, from your perspective?</p>
+                <p class="question-instruction">Please answer in your own words.</p>
+                
+                <textarea class="text-input" id="q3" name="q3" placeholder="Share your thoughts..."></textarea>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q4-Q19: Standard Radio Questions -->
+            <div class="question-container" data-question="4">
+                <h1 class="question-title"><span class="question-number">Q4.</span> Sequencing Housing and Transportation Reform</h1>
+                <p class="question-text">People disagree about how the province should sequence major housing and transportation reforms. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q4" id="q4_option1" value="A. Housing and transportation reforms should be applied across Ontario at the same time, even if solutions are less tailored to local conditions">
+                        <label for="q4_option1"><span class="option-label">A.</span> Housing and transportation reforms should be applied across Ontario at the same time, even if solutions are less tailored to local conditions</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q4" id="q4_option2" value="B. The province should focus first on fixing housing and transportation challenges in the Greater Toronto and Hamilton Area, even if other regions wait longer for reform">
+                        <label for="q4_option2"><span class="option-label">B.</span> The province should focus first on fixing housing and transportation challenges in the Greater Toronto and Hamilton Area, even if other regions wait longer for reform</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q4" id="q4_option3" value="C. Not sure">
+                        <label for="q4_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Continue with Q5-Q19 (abbreviated for space, but same structure) -->
+            <!-- Q5 -->
+            <div class="question-container" data-question="5">
+                <h1 class="question-title"><span class="question-number">Q5.</span> Authority Over Housing Decisions</h1>
+                <p class="question-text">People disagree about who should have final authority over housing supply. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q5" id="q5_option1" value="A. Municipalities should retain final authority over housing decisions, even if it limits how much housing is built overall">
+                        <label for="q5_option1"><span class="option-label">A.</span> Municipalities should retain final authority over housing decisions, even if it limits how much housing is built overall</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q5" id="q5_option2" value="B. The province should have the power to override municipalities to increase housing supply, even if it reduces local control">
+                        <label for="q5_option2"><span class="option-label">B.</span> The province should have the power to override municipalities to increase housing supply, even if it reduces local control</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q5" id="q5_option3" value="C. Not sure">
+                        <label for="q5_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q6: Infrastructure Costs and Project Timing -->
+            <div class="question-container" data-question="6">
+                <h1 class="question-title"><span class="question-number">Q6.</span> Infrastructure Costs and Project Timing</h1>
+                <p class="question-text">People disagree about how Ontario should respond to rising infrastructure costs. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q6" id="q6_option1" value="A. Ontario should continue building major infrastructure despite high costs, even if it increases public spending risk">
+                        <label for="q6_option1"><span class="option-label">A.</span> Ontario should continue building major infrastructure despite high costs, even if it increases public spending risk</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q6" id="q6_option2" value="B. Ontario should slow or pause some major projects to reassess costs and delivery models, even if it delays benefits">
+                        <label for="q6_option2"><span class="option-label">B.</span> Ontario should slow or pause some major projects to reassess costs and delivery models, even if it delays benefits</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q6" id="q6_option3" value="C. Not sure">
+                        <label for="q6_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q7: Delivering Major Infrastructure Projects -->
+            <div class="question-container" data-question="7">
+                <h1 class="question-title"><span class="question-number">Q7.</span> Delivering Major Infrastructure Projects</h1>
+                <p class="question-text">People disagree about how large infrastructure projects should be delivered. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q7" id="q7_option1" value="A. Ontario should continue relying on private consortiums to deliver projects, even if accountability and cost control are harder to manage">
+                        <label for="q7_option1"><span class="option-label">A.</span> Ontario should continue relying on private consortiums to deliver projects, even if accountability and cost control are harder to manage</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q7" id="q7_option2" value="B. Ontario should build permanent public institutions that deliver projects continuously, even if this increases government responsibility and long-term staffing">
+                        <label for="q7_option2"><span class="option-label">B.</span> Ontario should build permanent public institutions that deliver projects continuously, even if this increases government responsibility and long-term staffing</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q7" id="q7_option3" value="C. Not sure">
+                        <label for="q7_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q8: Electricity System Design and Long-Term Rates -->
+            <div class="question-container" data-question="8">
+                <h1 class="question-title"><span class="question-number">Q8.</span> Electricity System Design and Long-Term Rates</h1>
+                <p class="question-text">People disagree about how Ontario's electricity system should be structured. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q8" id="q8_option1" value="A. Electricity generation, including major capital projects, should rely primarily on private investment and markets, even if electricity rates are higher because users pay both capital and operating costs">
+                        <label for="q8_option1"><span class="option-label">A.</span> Electricity generation, including major capital projects, should rely primarily on private investment and markets, even if electricity rates are higher because users pay both capital and operating costs</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q8" id="q8_option2" value="B. The province should fund and own the capital costs of large baseload power projects, while allowing competitive markets to supply variable power, so electricity users mainly pay operating costs over time">
+                        <label for="q8_option2"><span class="option-label">B.</span> The province should fund and own the capital costs of large baseload power projects, while allowing competitive markets to supply variable power, so electricity users mainly pay operating costs over time</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q8" id="q8_option3" value="C. Not sure">
+                        <label for="q8_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q9: Climate Change Policy Approach -->
+            <div class="question-container" data-question="9">
+                <h1 class="question-title"><span class="question-number">Q9.</span> Climate Change Policy Approach</h1>
+                <p class="question-text">People disagree about the best way to reduce emissions. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q9" id="q9_option1" value="A. Reducing emissions should focus on pricing and regulating fossil fuels, even if it raises costs for households and businesses">
+                        <label for="q9_option1"><span class="option-label">A.</span> Reducing emissions should focus on pricing and regulating fossil fuels, even if it raises costs for households and businesses</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q9" id="q9_option2" value="B. Reducing emissions should focus on making clean alternatives cheaper, even if emissions fall more gradually">
+                        <label for="q9_option2"><span class="option-label">B.</span> Reducing emissions should focus on making clean alternatives cheaper, even if emissions fall more gradually</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q9" id="q9_option3" value="C. Not sure">
+                        <label for="q9_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q10: Nuclear and Hydropower Strategy -->
+            <div class="question-container" data-question="10">
+                <h1 class="question-title"><span class="question-number">Q10.</span> Nuclear and Hydropower Strategy</h1>
+                <p class="question-text">People disagree about Ontario's long-term electricity supply. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q10" id="q10_option1" value="A. Ontario should limit large nuclear and hydropower projects due to cost, environmental, and safety risks, even if future electricity supply is tighter">
+                        <label for="q10_option1"><span class="option-label">A.</span> Ontario should limit large nuclear and hydropower projects due to cost, environmental, and safety risks, even if future electricity supply is tighter</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q10" id="q10_option2" value="B. Ontario should plan and build nuclear and hydropower at large scale to meet future demand, even if projects take decades and require long-term commitments">
+                        <label for="q10_option2"><span class="option-label">B.</span> Ontario should plan and build nuclear and hydropower at large scale to meet future demand, even if projects take decades and require long-term commitments</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q10" id="q10_option3" value="C. Not sure">
+                        <label for="q10_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q11: Healthcare System Design and Cost Control -->
+            <div class="question-container" data-question="11">
+                <h1 class="question-title"><span class="question-number">Q11.</span> Healthcare System Design and Cost Control</h1>
+                <p class="question-text">People disagree about how Ontario should improve healthcare performance. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q11" id="q11_option1" value="A. Ontario should simplify rules and paperwork, invest in healthcare technology and diagnostic capacity, and expand doctors and nurses, accepting that costs may rise as access improves">
+                        <label for="q11_option1"><span class="option-label">A.</span> Ontario should simplify rules and paperwork, invest in healthcare technology and diagnostic capacity, and expand doctors and nurses, accepting that costs may rise as access improves</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q11" id="q11_option2" value="B. Ontario should strengthen centralized planning, utilization controls, and system oversight to manage demand and costs, even if access and provider flexibility remain limited">
+                        <label for="q11_option2"><span class="option-label">B.</span> Ontario should strengthen centralized planning, utilization controls, and system oversight to manage demand and costs, even if access and provider flexibility remain limited</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q11" id="q11_option3" value="C. Not sure">
+                        <label for="q11_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q12: Emergency Care: Speed, Cost, and Clinical Focus -->
+            <div class="question-container" data-question="12">
+                <h1 class="question-title"><span class="question-number">Q12.</span> Emergency Care: Speed, Cost, and Clinical Focus</h1>
+                <p class="question-text">People disagree about how emergency care should be organized. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q12" id="q12_option1" value="A. Hospitals should pair emergency departments with 24-hour urgent care so lower-acuity patients can be seen faster and ER doctors can focus on the sickest patients, even if it increases healthcare costs by adding facilities and staffing">
+                        <label for="q12_option1"><span class="option-label">A.</span> Hospitals should pair emergency departments with 24-hour urgent care so lower-acuity patients can be seen faster and ER doctors can focus on the sickest patients, even if it increases healthcare costs by adding facilities and staffing</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q12" id="q12_option2" value="B. Emergency departments should remain the primary place for urgent care to control costs and keep care centralized, even if lower-acuity patients wait longer and ER doctors handle a wider range of cases">
+                        <label for="q12_option2"><span class="option-label">B.</span> Emergency departments should remain the primary place for urgent care to control costs and keep care centralized, even if lower-acuity patients wait longer and ER doctors handle a wider range of cases</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q12" id="q12_option3" value="C. Not sure">
+                        <label for="q12_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q13: Expanding the Healthcare Workforce -->
+            <div class="question-container" data-question="13">
+                <h1 class="question-title"><span class="question-number">Q13.</span> Expanding the Healthcare Workforce</h1>
+                <p class="question-text">People disagree about how to address healthcare staffing shortages. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q13" id="q13_option1" value="A. Ontario should maintain current training pathways and focus on retention, even if shortages persist longer">
+                        <label for="q13_option1"><span class="option-label">A.</span> Ontario should maintain current training pathways and focus on retention, even if shortages persist longer</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q13" id="q13_option2" value="B. Ontario should significantly expand training and licensing capacity for doctors and nurses, even if standards or timelines must change">
+                        <label for="q13_option2"><span class="option-label">B.</span> Ontario should significantly expand training and licensing capacity for doctors and nurses, even if standards or timelines must change</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q13" id="q13_option3" value="C. Not sure">
+                        <label for="q13_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q14: Location of Public Sector Jobs -->
+            <div class="question-container" data-question="14">
+                <h1 class="question-title"><span class="question-number">Q14.</span> Location of Public Sector Jobs</h1>
+                <p class="question-text">People disagree about where provincial public sector jobs should be located. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q14" id="q14_option1" value="A. Public sector jobs should remain concentrated in major urban centres for efficiency and coordination, even if regional economic gaps persist">
+                        <label for="q14_option1"><span class="option-label">A.</span> Public sector jobs should remain concentrated in major urban centres for efficiency and coordination, even if regional economic gaps persist</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q14" id="q14_option2" value="B. Ontario should move more government jobs and services to northern and rural communities, even if coordination becomes more complex">
+                        <label for="q14_option2"><span class="option-label">B.</span> Ontario should move more government jobs and services to northern and rural communities, even if coordination becomes more complex</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q14" id="q14_option3" value="C. Not sure">
+                        <label for="q14_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q15: Provincial–Municipal Responsibilities -->
+            <div class="question-container" data-question="15">
+                <h1 class="question-title"><span class="question-number">Q15.</span> Provincial–Municipal Responsibilities</h1>
+                <p class="question-text">People disagree about how responsibilities should be divided between the province and municipalities. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q15" id="q15_option1" value="A. Municipalities should remain responsible for funding and delivering local services, even if it puts pressure on property taxes and creates uneven service levels">
+                        <label for="q15_option1"><span class="option-label">A.</span> Municipalities should remain responsible for funding and delivering local services, even if it puts pressure on property taxes and creates uneven service levels</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q15" id="q15_option2" value="B. The province should take back more responsibility for funding and delivering municipal services, even if it increases provincial costs and reduces local control">
+                        <label for="q15_option2"><span class="option-label">B.</span> The province should take back more responsibility for funding and delivering municipal services, even if it increases provincial costs and reduces local control</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q15" id="q15_option3" value="C. Not sure">
+                        <label for="q15_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q16: Intercity Transportation Strategy and Growth -->
+            <div class="question-container" data-question="16">
+                <h1 class="question-title"><span class="question-number">Q16.</span> Intercity Transportation Strategy and Growth</h1>
+                <p class="question-text">People disagree about Ontario's long-term intercity transportation strategy. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q16" id="q16_option1" value="A. Ontario should invest in a high-speed rail network connecting major cities to support long-term economic growth and reduce congestion, even if it requires very large upfront costs and long timelines before benefits are realized">
+                        <label for="q16_option1"><span class="option-label">A.</span> Ontario should invest in a high-speed rail network connecting major cities to support long-term economic growth and reduce congestion, even if it requires very large upfront costs and long timelines before benefits are realized</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q16" id="q16_option2" value="B. Ontario should prioritize improving existing highways and regional transit to manage congestion and reliability, even if it means slower intercity travel and less transformative regional integration">
+                        <label for="q16_option2"><span class="option-label">B.</span> Ontario should prioritize improving existing highways and regional transit to manage congestion and reliability, even if it means slower intercity travel and less transformative regional integration</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q16" id="q16_option3" value="C. Not sure">
+                        <label for="q16_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q17: Law, Order, and Provincial Authority -->
+            <div class="question-container" data-question="17">
+                <h1 class="question-title"><span class="question-number">Q17.</span> Law, Order, and Provincial Authority</h1>
+                <p class="question-text">People disagree about how Ontario should address public safety, repeat offending, and the court system. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q17" id="q17_option1" value="A. Ontario should strengthen bail rules, court capacity, and secure treatment options to prioritize public safety and system reliability, even if it increases incarceration and public costs">
+                        <label for="q17_option1"><span class="option-label">A.</span> Ontario should strengthen bail rules, court capacity, and secure treatment options to prioritize public safety and system reliability, even if it increases incarceration and public costs</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q17" id="q17_option2" value="B. Ontario should focus on alternatives to incarceration, diversion, and rehabilitation, even if courts, policing, and public spaces remain under strain">
+                        <label for="q17_option2"><span class="option-label">B.</span> Ontario should focus on alternatives to incarceration, diversion, and rehabilitation, even if courts, policing, and public spaces remain under strain</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q17" id="q17_option3" value="C. Not sure">
+                        <label for="q17_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q18: K–12 Education: Outcomes vs Local Control -->
+            <div class="question-container" data-question="18">
+                <h1 class="question-title"><span class="question-number">Q18.</span> K–12 Education: Outcomes vs Local Control</h1>
+                <p class="question-text">People disagree about how Ontario should improve K–12 education. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q18" id="q18_option1" value="A. Ontario should prioritize clear standards, measurable outcomes, and system accountability, even if it reduces local flexibility for schools and school boards">
+                        <label for="q18_option1"><span class="option-label">A.</span> Ontario should prioritize clear standards, measurable outcomes, and system accountability, even if it reduces local flexibility for schools and school boards</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q18" id="q18_option2" value="B. Ontario should prioritize local control, educator discretion, and broader learning goals, even if student outcomes vary more across schools and regions">
+                        <label for="q18_option2"><span class="option-label">B.</span> Ontario should prioritize local control, educator discretion, and broader learning goals, even if student outcomes vary more across schools and regions</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q18" id="q18_option3" value="C. Not sure">
+                        <label for="q18_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q19: Skills, Trades, and Workforce Alignment -->
+            <div class="question-container" data-question="19">
+                <h1 class="question-title"><span class="question-number">Q19.</span> Skills, Trades, and Workforce Alignment</h1>
+                <p class="question-text">People disagree about how Ontario should align education and training with the labour market. Which is closer to your view?</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="radio" name="q19" id="q19_option1" value="A. Ontario should aggressively expand trades training, skills programs, and credential pathways tied to labour market needs, even if traditional academic pathways receive less emphasis">
+                        <label for="q19_option1"><span class="option-label">A.</span> Ontario should aggressively expand trades training, skills programs, and credential pathways tied to labour market needs, even if traditional academic pathways receive less emphasis</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q19" id="q19_option2" value="B. Ontario should continue prioritizing broad academic education and individual choice, even if skills shortages in key sectors persist">
+                        <label for="q19_option2"><span class="option-label">B.</span> Ontario should continue prioritizing broad academic education and individual choice, even if skills shortages in key sectors persist</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="q19" id="q19_option3" value="C. Not sure">
+                        <label for="q19_option3"><span class="option-label">C.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q20: Checkboxes -->
+            <div class="question-container" data-question="20">
+                <h1 class="question-title"><span class="question-number">Q20.</span> Willingness to Support a Potential Candidacy</h1>
+                <p class="question-text">If I decide to run for provincial office, which of the following, if any, would you consider doing? Please select all that apply.</p>
+                
+                <div class="options-container">
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_vote" value="Vote for me">
+                        <label for="q20_vote"><span class="option-label">A.</span> Vote for me</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_volunteer" value="Volunteer time to support the campaign">
+                        <label for="q20_volunteer"><span class="option-label">B.</span> Volunteer time to support the campaign</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_small_donation" value="Make a small financial donation">
+                        <label for="q20_small_donation"><span class="option-label">C.</span> Make a small financial donation</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_large_donation" value="Make a larger financial donation">
+                        <label for="q20_large_donation"><span class="option-label">D.</span> Make a larger financial donation</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_follow_share" value="Follow or share campaign information online">
+                        <label for="q20_follow_share"><span class="option-label">E.</span> Follow or share campaign information online</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_none" value="None of the above">
+                        <label for="q20_none"><span class="option-label">F.</span> None of the above</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" name="q20" id="q20_unsure" value="Not sure">
+                        <label for="q20_unsure"><span class="option-label">G.</span> Not sure</label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" id="q20-submit-button" onclick="checkQ20AndProceed()">Next</button>
+                </div>
+            </div>
+            
+            <!-- Q21: Contact Information (Conditional - separate page) -->
+            <div class="question-container" data-question="21" id="q21-container">
+                <h2 class="question-title">
+                    <span class="question-number">Q21.</span> Contact Information
+                </h2>
+                <p class="question-text" style="margin-bottom: 32px;">Thank you for your interest in supporting a potential campaign. Please provide your contact information so we can stay in touch.</p>
+                
+                <div class="form-input-group">
+                    <label class="form-input-label" for="q21_firstname">First Name</label>
+                    <input type="text" class="form-input-field" id="q21_firstname" name="q21_firstname">
+                </div>
+                
+                <div class="form-input-group">
+                    <label class="form-input-label" for="q21_lastname">Last Name</label>
+                    <input type="text" class="form-input-field" id="q21_lastname" name="q21_lastname">
+                </div>
+                
+                <div class="form-input-group">
+                    <label class="form-input-label" for="q21_email">Email</label>
+                    <input type="email" class="form-input-field" id="q21_email" name="q21_email">
+                </div>
+                
+                <div class="form-input-group">
+                    <label class="form-input-label" for="q21_phone">Phone</label>
+                    <input type="tel" class="form-input-field" id="q21_phone" name="q21_phone" 
+                           placeholder="(416) 555-1234">
+                </div>
+                
+                <div class="form-input-group">
+                    <label class="form-input-label" for="q21_postal">Postal Code</label>
+                    <input type="text" class="form-input-field" id="q21_postal" name="q21_postal" 
+                           placeholder="M5H 2N2" 
+                           maxlength="7">
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
+                    <button class="nav-button nav-button-primary" onclick="submitForm()">Submit</button>
+                </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="success-container" id="successContainer">
+                <div class="success-icon">✓</div>
+                <h1 class="success-title">Thank You!</h1>
+                <p class="success-message">Thank you for providing valuable input as we explore the potential leadership campaign. Your responses have been recorded.</p>
+            </div>
+            
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="success-icon">⏳</div>
+                <p style="font-family: var(--option-font); font-weight: 300; color: var(--text-light);">Submitting your responses...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ============================================
+        // CONFIGURATION
+        // ============================================
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBszgnSlw3ROLG0EX51c99uI8ivqtqHy5v6zdm7OsY6oBpjwqN05vgiaRlJcu0i1gz/exec'; 
+        
+        // ============================================
+        // FORM STATE
+        // ============================================
+        const TOTAL_QUESTIONS = 20;
+        let currentQuestion = 0; // Start at intro page
+        let showQ21 = false; // Conditional question flag
+        
+        // Q2 Ranking data
+        const q2Options = [
+            'Healthcare',
+            'Education',
+            'Housing affordability',
+            'Transportation and congestion',
+            'Energy affordability and reliability',
+            'Climate change and environmental protection',
+            'Provincial infrastructure',
+            'Cost of living and household affordability'
+        ];
+        let q2Selected = [];
+        
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQ2();
+            setupOptionClickHandlers();
+            setupQ21Validation();
+            
+            // Q21 is hidden by default (it's conditional and appears within Q20)
+            // Already set to display: none in inline style
+            
+            // Check URL hash to jump to specific question for testing
+            const hash = window.location.hash;
+            if (hash) {
+                if (hash === '#intro' || hash === '#q0') {
+                    showQuestion(0);
+                } else {
+                    const match = hash.match(/^#q(\d+)$/);
+                    if (match) {
+                        const questionNum = parseInt(match[1]);
+                        // Allow Q21 if navigating via URL hash (for testing)
+                        const maxQuestion = showQ21 ? TOTAL_QUESTIONS + 1 : TOTAL_QUESTIONS;
+                        if (questionNum >= 1 && questionNum <= maxQuestion) {
+                            showQuestion(questionNum);
+                            return; // Don't update progress twice
+                        }
+                    }
+                }
+            }
+            
+            updateProgress();
+        });
+        
+        // ============================================
+        // Q21 FIELD VALIDATION AND FORMATTING
+        // ============================================
+        function setupQ21Validation() {
+            // Phone number formatting
+            const phoneField = document.getElementById('q21_phone');
+            if (phoneField) {
+                phoneField.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+                    if (value.length > 10) value = value.substring(0, 10);
+                    
+                    // Format as (XXX) XXX-XXXX
+                    let formatted = '';
+                    if (value.length > 0) {
+                        if (value.length <= 3) {
+                            formatted = `(${value}`;
+                        } else if (value.length <= 6) {
+                            formatted = `(${value.substring(0, 3)}) ${value.substring(3)}`;
+                        } else {
+                            formatted = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
+                        }
+                    }
+                    e.target.value = formatted;
+                });
+            }
+            
+            // Postal code formatting
+            const postalField = document.getElementById('q21_postal');
+            if (postalField) {
+                postalField.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+                    if (value.length > 6) value = value.substring(0, 6);
+                    
+                    // Format as A1A 1A1
+                    if (value.length > 3) {
+                        value = `${value.substring(0, 3)} ${value.substring(3)}`;
+                    }
+                    e.target.value = value;
+                });
+                
+                // Ensure uppercase on blur
+                postalField.addEventListener('blur', function(e) {
+                    e.target.value = e.target.value.toUpperCase();
+                });
+            }
+        }
+        
+        // ============================================
+        // PROGRESS BAR
+        // ============================================
+        function updateProgress() {
+            // Adjust total questions based on whether Q21 will be shown
+            const totalQuestions = showQ21 ? TOTAL_QUESTIONS + 1 : TOTAL_QUESTIONS;
+            
+            // Don't show progress on intro page
+            if (currentQuestion === 0) {
+                document.getElementById('progressText').textContent = '';
+                document.getElementById('progressBar').style.width = '0%';
+                return;
+            }
+            
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+        }
+        
+        // ============================================
+        // NAVIGATION
+        // ============================================
+        function showQuestion(num) {
+            // Prevent showing Q21 if it shouldn't be shown
+            if (num === 21 && !showQ21) {
+                // If Q21 shouldn't be shown, go to Q20 instead
+                num = 20;
+            }
+            
+            // Hide all questions and intro
+            document.querySelectorAll('.question-container, .intro-container').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            // Show current question or intro
+            const question = document.querySelector(`[data-question="${num}"]`);
+            if (question) {
+                question.classList.add('active');
+            }
+            
+            currentQuestion = num;
+            updateProgress();
+            
+            // Update URL hash for easy testing/refreshing
+            if (num === 0) {
+                window.location.hash = 'intro';
+            } else {
+                window.location.hash = `q${num}`;
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function nextQuestion() {
+            // Handle Q21 separately - it's conditional
+            if (currentQuestion === 20 && showQ21) {
+                showQuestion(21);
+            } else if (currentQuestion < TOTAL_QUESTIONS) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                // If on Q21, go back to Q20
+                if (currentQuestion === 21) {
+                    showQuestion(20);
+                } else {
+                    showQuestion(currentQuestion - 1);
+                }
+            }
+        }
+        
+        // ============================================
+        // Q20 CONDITIONAL LOGIC
+        // ============================================
+        function checkQ20AndProceed() {
+            const q20Selected = Array.from(document.querySelectorAll('input[name="q20"]:checked')).map(cb => cb.value);
+            
+            // Check if any option indicates willingness to support
+            const supportOptions = [
+                'Vote for me',
+                'Volunteer time to support the campaign',
+                'Make a small financial donation',
+                'Make a larger financial donation',
+                'Follow or share campaign information online'
+            ];
+            
+            const hasSupport = q20Selected.some(option => supportOptions.includes(option));
+            
+            if (hasSupport) {
+                showQ21 = true;
+                // Navigate to Q21 page
+                showQuestion(21);
+            } else {
+                showQ21 = false;
+                // Skip Q21 and submit directly
+                submitForm();
+            }
+        }
+        
+        // ============================================
+        // OPTION CLICK HANDLERS
+        // ============================================
+        function setupOptionClickHandlers() {
+            // Radio buttons - handle clicks on option-item for immediate visual feedback
+            document.querySelectorAll('.option-item').forEach(item => {
+                const radio = item.querySelector('input[type="radio"]');
+                if (radio) {
+                    // Click handler on the entire option-item
+                    item.addEventListener('click', function(e) {
+                        // If clicking on the label or the option-item div (but not the radio itself)
+                        if (e.target !== radio && e.target.tagName !== 'INPUT') {
+                            e.preventDefault();
+                            radio.checked = true;
+                            // Manually trigger change event to update visual state
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    });
+                    
+                    // Change event handler for visual feedback
+                    radio.addEventListener('change', function() {
+                        // Remove selected class from siblings in the same group
+                        const container = this.closest('.options-container') || this.closest('.multi-item-options');
+                        if (container) {
+                            container.querySelectorAll('.option-item').forEach(sibling => {
+                                sibling.classList.remove('selected');
+                            });
+                        }
+                        // Add selected class to this option-item
+                        this.closest('.option-item').classList.add('selected');
+                    });
+                }
+            });
+            
+            // Checkboxes
+            document.querySelectorAll('.option-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        this.closest('.option-item').classList.add('selected');
+                    } else {
+                        this.closest('.option-item').classList.remove('selected');
+                    }
+                });
+            });
+        }
+        
+        // ============================================
+        // Q2 RANKING FUNCTIONALITY
+        // ============================================
+        function initializeQ2() {
+            const container = document.getElementById('q2-available');
+            q2Options.forEach((option, index) => {
+                const item = document.createElement('div');
+                item.className = 'ranking-item';
+                item.dataset.value = option;
+                item.innerHTML = `
+                    <div class="ranking-number" style="display: none;"></div>
+                    <label>${option}</label>
+                    <span class="ranking-remove" style="display: none;" onclick="removeFromRanking('${option}')">Remove</span>
+                `;
+                item.onclick = () => addToRanking(option);
+                container.appendChild(item);
+            });
+        }
+        
+        function addToRanking(option) {
+            if (q2Selected.length >= 3) {
+                alert('You can only select up to 3 priorities.');
+                return;
+            }
+            
+            if (q2Selected.includes(option)) {
+                return;
+            }
+            
+            q2Selected.push(option);
+            updateRankingDisplay();
+        }
+        
+        function removeFromRanking(option) {
+            q2Selected = q2Selected.filter(item => item !== option);
+            updateRankingDisplay();
+        }
+        
+        function updateRankingDisplay() {
+            const container = document.getElementById('q2-ranking');
+            const availableContainer = document.getElementById('q2-available');
+            
+            // Clear existing ranked items
+            const existingRanked = container.querySelector('.ranking-ranked');
+            if (existingRanked) {
+                existingRanked.remove();
+            }
+            
+            // Create ranked section
+            if (q2Selected.length > 0) {
+                const rankedSection = document.createElement('div');
+                rankedSection.className = 'ranking-ranked';
+                
+                q2Selected.forEach((option, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'ranking-item';
+                    item.draggable = true;
+                    item.dataset.value = option;
+                    item.dataset.index = index;
+                    item.innerHTML = `
+                        <div class="ranking-number">${index + 1}</div>
+                        <label>${option}</label>
+                        <span class="ranking-remove" onclick="event.stopPropagation(); removeFromRanking('${option}')">Remove</span>
+                    `;
+                    
+                    // Drag and drop event handlers
+                    item.addEventListener('dragstart', function(e) {
+                        this.classList.add('dragging');
+                        e.dataTransfer.effectAllowed = 'move';
+                        e.dataTransfer.setData('text/html', this.innerHTML);
+                        e.dataTransfer.setData('text/plain', this.dataset.index);
+                    });
+                    
+                    item.addEventListener('dragend', function() {
+                        this.classList.remove('dragging');
+                    });
+                    
+                    item.addEventListener('dragover', function(e) {
+                        if (e.preventDefault) {
+                            e.preventDefault();
+                        }
+                        e.dataTransfer.dropEffect = 'move';
+                        return false;
+                    });
+                    
+                    item.addEventListener('dragenter', function(e) {
+                        this.style.borderColor = 'var(--red)';
+                    });
+                    
+                    item.addEventListener('dragleave', function() {
+                        this.style.borderColor = 'var(--grey)';
+                    });
+                    
+                    item.addEventListener('drop', function(e) {
+                        if (e.stopPropagation) {
+                            e.stopPropagation();
+                        }
+                        
+                        const draggedIndex = parseInt(e.dataTransfer.getData('text/plain'));
+                        const targetIndex = parseInt(this.dataset.index);
+                        
+                        if (draggedIndex !== targetIndex) {
+                            // Reorder the array
+                            const draggedItem = q2Selected[draggedIndex];
+                            q2Selected.splice(draggedIndex, 1);
+                            q2Selected.splice(targetIndex, 0, draggedItem);
+                            
+                            // Update display
+                            updateRankingDisplay();
+                        }
+                        
+                        this.style.borderColor = 'var(--grey)';
+                        return false;
+                    });
+                    
+                    rankedSection.appendChild(item);
+                });
+                
+                container.insertBefore(rankedSection, availableContainer);
+            }
+            
+            // Update available options
+            availableContainer.querySelectorAll('.ranking-item').forEach(item => {
+                const value = item.dataset.value;
+                if (q2Selected.includes(value)) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'flex';
+                }
+            });
+        }
+        
+        // ============================================
+        // FORM SUBMISSION
+        // ============================================
+        function collectAllData() {
+            const data = {
+                timestamp: new Date().toISOString()
+            };
+            
+            // Q1: Multi-item responses
+            const q1Items = ['healthcare', 'education', 'housing', 'transportation', 'energy', 'climate', 'infrastructure', 'cost'];
+            q1Items.forEach(item => {
+                const selected = document.querySelector(`input[name="q1_${item}"]:checked`);
+                data[`q1_${item}`] = selected ? selected.value : '';
+            });
+            
+            // Q2: Ranking
+            data.q2_ranking = q2Selected.join(' | ');
+            
+            // Q3: Open-ended
+            data.q3 = document.getElementById('q3').value.trim();
+            
+            // Q4-Q19: Radio buttons
+            for (let i = 4; i <= 19; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                data[`q${i}`] = selected ? selected.value : '';
+            }
+            
+            // Q20: Checkboxes
+            const q20Selected = Array.from(document.querySelectorAll('input[name="q20"]:checked')).map(cb => cb.value);
+            data.q20 = q20Selected.join(' | ');
+            
+            // Q21: Contact information (if shown)
+            if (showQ21) {
+                data.q21_firstname = document.getElementById('q21_firstname').value.trim();
+                data.q21_lastname = document.getElementById('q21_lastname').value.trim();
+                data.q21_email = document.getElementById('q21_email').value.trim().toLowerCase();
+                // Store phone as digits only for consistency
+                const phoneValue = document.getElementById('q21_phone').value.replace(/\D/g, '');
+                data.q21_phone = phoneValue;
+                // Store postal code in standard format (A1A 1A1)
+                const postalValue = document.getElementById('q21_postal').value.replace(/\s/g, '').toUpperCase();
+                data.q21_postal = postalValue.length === 6 ? `${postalValue.substring(0, 3)} ${postalValue.substring(3)}` : postalValue;
+            } else {
+                data.q21_firstname = '';
+                data.q21_lastname = '';
+                data.q21_email = '';
+                data.q21_phone = '';
+                data.q21_postal = '';
+            }
+            
+            return data;
+        }
+        
+        async function submitForm() {
+            // Validate Q21 if shown (it's part of Q20, not a separate form)
+            if (showQ21) {
+                const firstName = document.getElementById('q21_firstname');
+                const lastName = document.getElementById('q21_lastname');
+                const email = document.getElementById('q21_email');
+                const phone = document.getElementById('q21_phone');
+                const postal = document.getElementById('q21_postal');
+                
+                // Check if any fields are filled (partial completion)
+                const hasAnyField = firstName.value.trim() || lastName.value.trim() || email.value.trim() || phone.value.trim() || postal.value.trim();
+                const hasAllFields = firstName.value.trim() && lastName.value.trim() && email.value.trim() && phone.value.trim() && postal.value.trim();
+                
+                // If some but not all fields are filled, show warning
+                if (hasAnyField && !hasAllFields) {
+                    const proceed = confirm('You have partially filled the contact information. Would you like to submit without completing all fields? You can always provide this information later.');
+                    if (!proceed) {
+                        // Focus on first empty field
+                        if (!firstName.value.trim()) firstName.focus();
+                        else if (!lastName.value.trim()) lastName.focus();
+                        else if (!email.value.trim()) email.focus();
+                        else if (!phone.value.trim()) phone.focus();
+                        else if (!postal.value.trim()) postal.focus();
+                        return;
+                    }
+                }
+                
+                // If no fields are filled, show warning but allow submission
+                if (!hasAnyField) {
+                    const proceed = confirm('You haven\'t provided contact information. Without this, we won\'t be able to reach you about volunteering, donations, or campaign updates. Are you sure you want to submit without contact information?');
+                    if (!proceed) {
+                        firstName.focus();
+                        return;
+                    }
+                }
+                
+                // Validate formats only if fields are filled
+                if (email.value.trim()) {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email.value.trim())) {
+                        alert('Please enter a valid email address (e.g., name@example.com) or leave it blank.');
+                        email.focus();
+                        return;
+                    }
+                }
+                
+                if (phone.value.trim()) {
+                    // Validate phone number format (Canadian: 10 digits)
+                    const phoneValue = phone.value.replace(/\D/g, '');
+                    if (phoneValue.length !== 10) {
+                        alert('Please enter a valid Canadian phone number (10 digits, e.g., (416) 555-1234) or leave it blank.');
+                        phone.focus();
+                        return;
+                    }
+                }
+                
+                if (postal.value.trim()) {
+                    // Validate postal code format (Canadian: A1A 1A1)
+                    const postalValue = postal.value.replace(/\s/g, '').toUpperCase();
+                    const postalPattern = /^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$/;
+                    if (!postalPattern.test(postalValue)) {
+                        alert('Please enter a valid Canadian postal code (e.g., M5H 2N2) or leave it blank.');
+                        postal.focus();
+                        return;
+                    }
+                }
+            }
+            
+            // Show loading
+            document.getElementById('loadingOverlay').classList.add('active');
+            
+            try {
+                const formData = collectAllData();
+                
+                // Submit to Google Sheets
+                await submitToGoogleSheets(formData);
+                
+                // Show success
+                document.querySelectorAll('.question-container, .intro-container').forEach(q => {
+                    q.classList.remove('active');
+                });
+                document.getElementById('successContainer').classList.add('active');
+                
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('There was an error submitting your form. Please try again.');
+            } finally {
+                document.getElementById('loadingOverlay').classList.remove('active');
+            }
+        }
+        
+        async function submitToGoogleSheets(data) {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            // Note: With no-cors mode, we can't read the response
+            // But the data should still be submitted
+        }
+    </script>
+</body>
+</html>
