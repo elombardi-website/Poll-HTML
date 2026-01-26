@@ -187,7 +187,7 @@
         /* Font Variables */
         :root {
             --title-font: 'PP Watch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --question-font: 'PP Acma', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --question-font: 'PP Pangram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --option-font: 'PP Pangram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --body-font: 'PP Pangram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             
@@ -315,7 +315,7 @@
         .intro-text {
             font-family: var(--question-font);
             font-size: 18px;
-            font-weight: 300;
+            font-weight: 500;
             color: var(--black);
             line-height: 1.6;
             margin-bottom: 40px;
@@ -327,7 +327,7 @@
             padding: 14px 16px;
             font-family: var(--question-font);
             font-size: 18px;
-            font-weight: 300;
+            font-weight: 500;
             color: var(--black);
             background-color: var(--white);
             border: 2px solid var(--grey);
@@ -360,7 +360,7 @@
             display: block;
             font-family: var(--question-font);
             font-size: 18px;
-            font-weight: 300;
+            font-weight: 500;
             color: var(--black);
             margin-bottom: 8px;
         }
@@ -398,7 +398,7 @@
         .question-text {
             font-family: var(--question-font);
             font-size: 20px;
-            font-weight: 300;
+            font-weight: 500;
             color: var(--black);
             margin-bottom: 32px;
             line-height: 1.5;
@@ -719,6 +719,22 @@
             font-size: 64px;
             color: var(--success-color);
             margin-bottom: 24px;
+        }
+        
+        .trillium-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
         
         .success-title {
@@ -1530,8 +1546,17 @@
             
             <!-- Loading Overlay -->
             <div class="loading-overlay" id="loadingOverlay">
-                <div class="success-icon">⏳</div>
-                <p style="font-family: var(--option-font); font-weight: 300; color: var(--text-light);">Submitting your responses...</p>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <svg class="trillium-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Trillium flower - three petals -->
+                        <path d="M50 20 L65 45 L50 80 L35 45 Z" fill="var(--red)" opacity="0.9"/>
+                        <path d="M50 20 L35 45 L20 30 L35 15 Z" fill="var(--red)" opacity="0.9" transform="rotate(-60 50 50)"/>
+                        <path d="M50 20 L65 45 L80 30 L65 15 Z" fill="var(--red)" opacity="0.9" transform="rotate(60 50 50)"/>
+                        <!-- Center -->
+                        <circle cx="50" cy="45" r="8" fill="var(--black)"/>
+                    </svg>
+                    <p style="font-family: var(--option-font); font-weight: 300; color: var(--text-light); margin-top: 16px;">Submitting your responses...</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1548,12 +1573,11 @@
         const TOTAL_QUESTIONS = 20;
         let currentQuestion = 0; // Start at intro page
         
-        // Generate or retrieve form start timestamp for partial submits
-        // This timestamp stays the same for all saves in this session
-        let formStartTimestamp = sessionStorage.getItem('formStartTimestamp');
-        if (!formStartTimestamp) {
-            formStartTimestamp = new Date().toISOString();
-            sessionStorage.setItem('formStartTimestamp', formStartTimestamp);
+        // Generate or retrieve session ID for partial submits
+        let sessionId = sessionStorage.getItem('formSessionId');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem('formSessionId', sessionId);
         }
         
         // Debounce timer for partial saves
@@ -1983,7 +2007,8 @@
         // ============================================
         function collectAllData() {
             const data = {
-                timestamp: formStartTimestamp // Use the same timestamp for all saves in this session
+                timestamp: new Date().toISOString(),
+                sessionId: sessionId // Include session ID for partial updates
             };
             
             // Q1: Multi-item responses
@@ -2140,8 +2165,8 @@
         async function savePartialData() {
             try {
                 const data = collectAllData();
-                // Debug: Log timestamp to verify it's being sent
-                console.log('Partial save - Timestamp:', data.timestamp);
+                // Debug: Log session ID to verify it's being sent
+                console.log('Partial save - Session ID:', data.sessionId);
                 console.log('Partial save - Full data:', data);
                 // Silently save in background - no user feedback
                 await fetch(GOOGLE_SCRIPT_URL, {
