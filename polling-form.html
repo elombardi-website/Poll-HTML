@@ -1547,6 +1547,16 @@
         // ============================================
         const TOTAL_QUESTIONS = 20;
         let currentQuestion = 0; // Start at intro page
+        
+        // Generate or retrieve session ID for partial submits
+        let sessionId = sessionStorage.getItem('formSessionId');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem('formSessionId', sessionId);
+        }
+        
+        // Debounce timer for partial saves
+        let partialSaveTimer = null;
         let showQ21 = false; // Conditional question flag
         
         // Q2 Ranking data
@@ -1569,6 +1579,7 @@
             initializeQ2();
             setupOptionClickHandlers();
             setupQ21Validation();
+            setupPartialSaveListeners();
             
             // Q21 is hidden by default (it's conditional and appears within Q20)
             // Already set to display: none in inline style
@@ -1618,6 +1629,8 @@
                         }
                     }
                     e.target.value = formatted;
+                    // Trigger partial save
+                    triggerPartialSave();
                 });
             }
             
@@ -1633,6 +1646,8 @@
                         value = `${value.substring(0, 3)} ${value.substring(3)}`;
                     }
                     e.target.value = value;
+                    // Trigger partial save
+                    triggerPartialSave();
                 });
                 
                 // Ensure uppercase on blur
@@ -1640,6 +1655,28 @@
                     e.target.value = e.target.value.toUpperCase();
                 });
             }
+        }
+        
+        // Setup partial save listeners for text inputs
+        function setupPartialSaveListeners() {
+            // Q3 text input
+            const q3Input = document.getElementById('q3');
+            if (q3Input) {
+                q3Input.addEventListener('input', function() {
+                    triggerPartialSave();
+                });
+            }
+            
+            // Q21 text inputs
+            const q21Inputs = ['q21_firstname', 'q21_lastname', 'q21_email'];
+            q21Inputs.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', function() {
+                        triggerPartialSave();
+                    });
+                }
+            });
         }
         
         // ============================================
@@ -1774,6 +1811,8 @@
                         }
                         // Add selected class to this option-item
                         this.closest('.option-item').classList.add('selected');
+                        // Trigger partial save
+                        triggerPartialSave();
                     });
                 }
             });
@@ -1786,6 +1825,8 @@
                     } else {
                         this.closest('.option-item').classList.remove('selected');
                     }
+                    // Trigger partial save
+                    triggerPartialSave();
                 });
             });
         }
@@ -1821,11 +1862,15 @@
             
             q2Selected.push(option);
             updateRankingDisplay();
+            // Trigger partial save
+            triggerPartialSave();
         }
         
         function removeFromRanking(option) {
             q2Selected = q2Selected.filter(item => item !== option);
             updateRankingDisplay();
+            // Trigger partial save
+            triggerPartialSave();
         }
         
         function updateRankingDisplay() {
@@ -1899,6 +1944,8 @@
                             
                             // Update display
                             updateRankingDisplay();
+                            // Trigger partial save
+                            triggerPartialSave();
                         }
                         
                         this.style.borderColor = 'var(--grey)';
@@ -1927,7 +1974,8 @@
         // ============================================
         function collectAllData() {
             const data = {
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                sessionId: sessionId // Include session ID for partial updates
             };
             
             // Q1: Multi-item responses
@@ -2078,6 +2126,38 @@
             
             // Note: With no-cors mode, we can't read the response
             // But the data should still be submitted
+        }
+        
+        // Silent partial save function - saves progress without interrupting user
+        async function savePartialData() {
+            try {
+                const data = collectAllData();
+                // Silently save in background - no user feedback
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+            } catch (error) {
+                // Silently fail - don't interrupt user experience
+                console.log('Partial save failed (non-critical):', error);
+            }
+        }
+        
+        // Debounced partial save - waits 1 second after last change before saving
+        function triggerPartialSave() {
+            // Clear existing timer
+            if (partialSaveTimer) {
+                clearTimeout(partialSaveTimer);
+            }
+            
+            // Set new timer - save after 1 second of inactivity
+            partialSaveTimer = setTimeout(() => {
+                savePartialData();
+            }, 1000);
         }
     </script>
 </body>
