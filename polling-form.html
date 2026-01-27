@@ -831,6 +831,16 @@
             }
         }
     </style>
+    
+    <!-- Weglot Translation for iframe -->
+    <script src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        // In your iframe
+        Weglot.initialize({
+            api_key: 'wg_f9b309a7791526fdb2a40f9af3de03549',
+            hide_switcher: true // You already have a switcher in parent window
+        });
+    </script>
 </head>
 <body>
     <div class="form-wrapper">
