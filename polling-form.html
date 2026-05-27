@@ -246,30 +246,6 @@
             position: relative;
         }
         
-        .progress-container {
-            margin-bottom: 32px;
-            background: rgba(45, 45, 45, 0.1);
-            border-radius: 8px;
-            height: 8px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: var(--red);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        
-        .progress-text {
-            text-align: center;
-            font-family: var(--option-font);
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--grey);
-            margin-bottom: 32px;
-        }
-        
         /* Question Container */
         .question-container {
             display: none;
@@ -388,11 +364,6 @@
             color: var(--black);
             margin-bottom: 16px;
             line-height: 1.2;
-        }
-        
-        /* Question number (Q1., Q2., etc.) styled in red */
-        .question-number {
-            color: var(--red);
         }
         
         .question-text {
@@ -832,22 +803,10 @@
         }
     </style>
     
-    <!-- Weglot Translation -->
-    <script src="https://cdn.weglot.com/weglot.min.js"></script>
-    <script>
-        Weglot.initialize({
-            api_key: 'wg_f9b309a7791526fdb2a40f9af3de03549'
-        });
-    </script>
 </head>
 <body>
     <div class="form-wrapper">
         <div class="form-container">
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <div class="progress-text" id="progressText"></div>
-            
             <!-- Intro/Welcome Page -->
             <div class="intro-container active" data-question="0">
                 <img src="https://cdn.prod.website-files.com/697130eda1bfecc9f848bc06/6976c68c17ac6da90759a951_EricSquare.png" alt="Eric Lombardi" class="intro-image" id="introImage">
@@ -860,7 +819,7 @@
             
             <!-- Q1: Direction by Issue Area -->
             <div class="question-container" data-question="1">
-                <h1 class="question-title"><span class="question-number">Q1.</span> Direction by Issue Area</h1>
+                <h1 class="question-title">Direction by Issue Area</h1>
                 <p class="question-text">Do you think Ontario is heading in the right direction or wrong direction on each of the following?</p>
                 
                 <div class="multi-item-container" id="q1-container">
@@ -1017,7 +976,7 @@
             
             <!-- Q2: Top Priorities (Ranking) -->
             <div class="question-container" data-question="2">
-                <h1 class="question-title"><span class="question-number">Q2.</span> Top Priorities for the Provincial Government</h1>
+                <h1 class="question-title">Top Priorities for the Provincial Government</h1>
                 <p class="question-text">Which of the following issues should be the highest priorities for the Government of Ontario?</p>
                 <p class="question-instruction">Please rank up to three, in order of importance.</p>
                 
@@ -1034,7 +993,7 @@
             
             <!-- Q3: Open-Ended -->
             <div class="question-container" data-question="3">
-                <h1 class="question-title"><span class="question-number">Q3.</span> Issues That Matter Most</h1>
+                <h1 class="question-title">Issues That Matter Most</h1>
                 <p class="question-text">Before thinking about specific policies or solutions, what are some of the most important issues facing Ontario today, from your perspective?</p>
                 <p class="question-instruction">Please answer in your own words.</p>
                 
@@ -1048,7 +1007,7 @@
             
             <!-- Q4-Q19: Standard Radio Questions -->
             <div class="question-container" data-question="4">
-                <h1 class="question-title"><span class="question-number">Q4.</span> Sequencing Housing and Transportation Reform</h1>
+                <h1 class="question-title">Sequencing Housing and Transportation Reform</h1>
                 <p class="question-text">People disagree about how the province should sequence major housing and transportation reforms. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1075,7 +1034,7 @@
             <!-- Continue with Q5-Q19 (abbreviated for space, but same structure) -->
             <!-- Q5 -->
             <div class="question-container" data-question="5">
-                <h1 class="question-title"><span class="question-number">Q5.</span> Authority Over Housing Decisions</h1>
+                <h1 class="question-title">Authority Over Housing Decisions</h1>
                 <p class="question-text">People disagree about who should have final authority over housing supply. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1101,7 +1060,7 @@
             
             <!-- Q6: Infrastructure Costs and Project Timing -->
             <div class="question-container" data-question="6">
-                <h1 class="question-title"><span class="question-number">Q6.</span> Infrastructure Costs and Project Timing</h1>
+                <h1 class="question-title">Infrastructure Costs and Project Timing</h1>
                 <p class="question-text">People disagree about how Ontario should respond to rising infrastructure costs. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1127,7 +1086,7 @@
             
             <!-- Q7: Delivering Major Infrastructure Projects -->
             <div class="question-container" data-question="7">
-                <h1 class="question-title"><span class="question-number">Q7.</span> Delivering Major Infrastructure Projects</h1>
+                <h1 class="question-title">Delivering Major Infrastructure Projects</h1>
                 <p class="question-text">People disagree about how large infrastructure projects should be delivered. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1153,7 +1112,7 @@
             
             <!-- Q8: Electricity System Design and Long-Term Rates -->
             <div class="question-container" data-question="8">
-                <h1 class="question-title"><span class="question-number">Q8.</span> Electricity System Design and Long-Term Rates</h1>
+                <h1 class="question-title">Electricity System Design and Long-Term Rates</h1>
                 <p class="question-text">People disagree about how Ontario's electricity system should be structured. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1179,7 +1138,7 @@
             
             <!-- Q9: Climate Change Policy Approach -->
             <div class="question-container" data-question="9">
-                <h1 class="question-title"><span class="question-number">Q9.</span> Climate Change Policy Approach</h1>
+                <h1 class="question-title">Climate Change Policy Approach</h1>
                 <p class="question-text">People disagree about the best way to reduce emissions. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1205,7 +1164,7 @@
             
             <!-- Q10: Nuclear and Hydropower Strategy -->
             <div class="question-container" data-question="10">
-                <h1 class="question-title"><span class="question-number">Q10.</span> Nuclear and Hydropower Strategy</h1>
+                <h1 class="question-title">Nuclear and Hydropower Strategy</h1>
                 <p class="question-text">People disagree about Ontario's long-term electricity supply. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1231,7 +1190,7 @@
             
             <!-- Q11: Healthcare System Design and Cost Control -->
             <div class="question-container" data-question="11">
-                <h1 class="question-title"><span class="question-number">Q11.</span> Healthcare System Design and Cost Control</h1>
+                <h1 class="question-title">Healthcare System Design and Cost Control</h1>
                 <p class="question-text">People disagree about how Ontario should improve healthcare performance. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1257,7 +1216,7 @@
             
             <!-- Q12: Emergency Care: Speed, Cost, and Clinical Focus -->
             <div class="question-container" data-question="12">
-                <h1 class="question-title"><span class="question-number">Q12.</span> Emergency Care: Speed, Cost, and Clinical Focus</h1>
+                <h1 class="question-title">Emergency Care: Speed, Cost, and Clinical Focus</h1>
                 <p class="question-text">People disagree about how emergency care should be organized. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1283,7 +1242,7 @@
             
             <!-- Q13: Expanding the Healthcare Workforce -->
             <div class="question-container" data-question="13">
-                <h1 class="question-title"><span class="question-number">Q13.</span> Expanding the Healthcare Workforce</h1>
+                <h1 class="question-title">Expanding the Healthcare Workforce</h1>
                 <p class="question-text">People disagree about how to address healthcare staffing shortages. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1309,7 +1268,7 @@
             
             <!-- Q14: Location of Public Sector Jobs -->
             <div class="question-container" data-question="14">
-                <h1 class="question-title"><span class="question-number">Q14.</span> Location of Public Sector Jobs</h1>
+                <h1 class="question-title">Location of Public Sector Jobs</h1>
                 <p class="question-text">People disagree about where provincial public sector jobs should be located. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1335,7 +1294,7 @@
             
             <!-- Q15: Provincial–Municipal Responsibilities -->
             <div class="question-container" data-question="15">
-                <h1 class="question-title"><span class="question-number">Q15.</span> Provincial–Municipal Responsibilities</h1>
+                <h1 class="question-title">Provincial–Municipal Responsibilities</h1>
                 <p class="question-text">People disagree about how responsibilities should be divided between the province and municipalities. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1361,7 +1320,7 @@
             
             <!-- Q16: Intercity Transportation Strategy and Growth -->
             <div class="question-container" data-question="16">
-                <h1 class="question-title"><span class="question-number">Q16.</span> Intercity Transportation Strategy and Growth</h1>
+                <h1 class="question-title">Intercity Transportation Strategy and Growth</h1>
                 <p class="question-text">People disagree about Ontario's long-term intercity transportation strategy. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1387,7 +1346,7 @@
             
             <!-- Q17: Law, Order, and Provincial Authority -->
             <div class="question-container" data-question="17">
-                <h1 class="question-title"><span class="question-number">Q17.</span> Law, Order, and Provincial Authority</h1>
+                <h1 class="question-title">Law, Order, and Provincial Authority</h1>
                 <p class="question-text">People disagree about how Ontario should address public safety, repeat offending, and the court system. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1413,7 +1372,7 @@
             
             <!-- Q18: K–12 Education: Outcomes vs Local Control -->
             <div class="question-container" data-question="18">
-                <h1 class="question-title"><span class="question-number">Q18.</span> K–12 Education: Outcomes vs Local Control</h1>
+                <h1 class="question-title">K–12 Education: Outcomes vs Local Control</h1>
                 <p class="question-text">People disagree about how Ontario should improve K–12 education. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1439,7 +1398,7 @@
             
             <!-- Q19: Skills, Trades, and Workforce Alignment -->
             <div class="question-container" data-question="19">
-                <h1 class="question-title"><span class="question-number">Q19.</span> Skills, Trades, and Workforce Alignment</h1>
+                <h1 class="question-title">Skills, Trades, and Workforce Alignment</h1>
                 <p class="question-text">People disagree about how Ontario should align education and training with the labour market. Which is closer to your view?</p>
                 
                 <div class="options-container">
@@ -1463,68 +1422,24 @@
                 </div>
             </div>
             
-            <!-- Q20: Checkboxes -->
-            <div class="question-container" data-question="20">
-                <h1 class="question-title"><span class="question-number">Q20.</span> Willingness to Support a Potential Candidacy</h1>
-                <p class="question-text">If I decide to run for provincial office, which of the following, if any, would you consider doing? Please select all that apply.</p>
-                
-                <div class="options-container">
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_vote" value="Vote for me">
-                        <label for="q20_vote"><span class="option-label">A.</span> Vote for me</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_volunteer" value="Volunteer time to support the campaign">
-                        <label for="q20_volunteer"><span class="option-label">B.</span> Volunteer time to support the campaign</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_small_donation" value="Make a small financial donation">
-                        <label for="q20_small_donation"><span class="option-label">C.</span> Make a small financial donation</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_large_donation" value="Make a larger financial donation">
-                        <label for="q20_large_donation"><span class="option-label">D.</span> Make a larger financial donation</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_follow_share" value="Follow or share campaign information online">
-                        <label for="q20_follow_share"><span class="option-label">E.</span> Follow or share campaign information online</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_none" value="None of the above">
-                        <label for="q20_none"><span class="option-label">F.</span> None of the above</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" name="q20" id="q20_unsure" value="Not sure">
-                        <label for="q20_unsure"><span class="option-label">G.</span> Not sure</label>
-                    </div>
-                </div>
-                
-                <div class="nav-buttons">
-                    <button class="nav-button nav-button-secondary" onclick="prevQuestion()">Previous</button>
-                    <button class="nav-button nav-button-primary" id="q20-submit-button" onclick="checkQ20AndProceed()">Next</button>
-                </div>
-            </div>
-            
-            <!-- Q21: Contact Information (Conditional - separate page) -->
+            <!-- Q21: Contact Information -->
             <div class="question-container" data-question="21" id="q21-container">
-                <h2 class="question-title">
-                    <span class="question-number">Q21.</span> Contact Information
-                </h2>
-                <p class="question-text" style="margin-bottom: 32px;">Thank you for your interest in supporting a potential campaign. Please provide your contact information so we can stay in touch.</p>
+                <h2 class="question-title">Stay in touch</h2>
+                <p class="question-text" style="margin-bottom: 32px;">We'd love to share results of this survey and updates from our campaign.</p>
                 
                 <div class="form-input-group">
                     <label class="form-input-label" for="q21_firstname">First Name</label>
-                    <input type="text" class="form-input-field" id="q21_firstname" name="q21_firstname">
+                    <input type="text" class="form-input-field" id="q21_firstname" name="q21_firstname" placeholder="Jane">
                 </div>
                 
                 <div class="form-input-group">
                     <label class="form-input-label" for="q21_lastname">Last Name</label>
-                    <input type="text" class="form-input-field" id="q21_lastname" name="q21_lastname">
+                    <input type="text" class="form-input-field" id="q21_lastname" name="q21_lastname" placeholder="Doe">
                 </div>
                 
                 <div class="form-input-group">
                     <label class="form-input-label" for="q21_email">Email</label>
-                    <input type="email" class="form-input-field" id="q21_email" name="q21_email">
+                    <input type="email" class="form-input-field" id="q21_email" name="q21_email" placeholder="jane@example.com">
                 </div>
                 
                 <div class="form-input-group">
@@ -1572,7 +1487,6 @@
         // ============================================
         // FORM STATE
         // ============================================
-        const TOTAL_QUESTIONS = 20;
         let currentQuestion = 0; // Start at intro page
         
         // Generate or retrieve session ID for partial submits
@@ -1584,7 +1498,6 @@
         
         // Debounce timer for partial saves
         let partialSaveTimer = null;
-        let showQ21 = false; // Conditional question flag
         
         // Q2 Ranking data
         const q2Options = [
@@ -1595,9 +1508,22 @@
             'Energy affordability and reliability',
             'Climate change and environmental protection',
             'Provincial infrastructure',
-            'Cost of living and household affordability'
+            'Cost of living',
+            'Crime and public safety'
         ];
         let q2Selected = [];
+
+        const q2TradeoffQuestionMap = {
+            'Healthcare': 11,
+            'Education': 18,
+            'Housing affordability': 5,
+            'Transportation and congestion': 16,
+            'Energy affordability and reliability': 8,
+            'Climate change and environmental protection': 9,
+            'Provincial infrastructure': 6,
+            'Cost of living': 15,
+            'Crime and public safety': 17
+        };
         
         // ============================================
         // INITIALIZATION
@@ -1608,9 +1534,6 @@
             setupQ21Validation();
             setupPartialSaveListeners();
             
-            // Q21 is hidden by default (it's conditional and appears within Q20)
-            // Already set to display: none in inline style
-            
             // Check URL hash to jump to specific question for testing
             const hash = window.location.hash;
             if (hash) {
@@ -1620,17 +1543,13 @@
                     const match = hash.match(/^#q(\d+)$/);
                     if (match) {
                         const questionNum = parseInt(match[1]);
-                        // Allow Q21 if navigating via URL hash (for testing)
-                        const maxQuestion = showQ21 ? TOTAL_QUESTIONS + 1 : TOTAL_QUESTIONS;
-                        if (questionNum >= 1 && questionNum <= maxQuestion) {
+                        if (questionNum >= 1 && questionNum <= 21) {
                             showQuestion(questionNum);
-                            return; // Don't update progress twice
+                            return;
                         }
                     }
                 }
             }
-            
-            updateProgress();
         });
         
         // ============================================
@@ -1707,34 +1626,19 @@
         }
         
         // ============================================
-        // PROGRESS BAR
-        // ============================================
-        function updateProgress() {
-            // Adjust total questions based on whether Q21 will be shown
-            const totalQuestions = showQ21 ? TOTAL_QUESTIONS + 1 : TOTAL_QUESTIONS;
-            
-            // Don't show progress on intro page
-            if (currentQuestion === 0) {
-                document.getElementById('progressText').textContent = '';
-                document.getElementById('progressBar').style.width = '0%';
-                return;
-            }
-            
-            const progress = (currentQuestion / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `Question ${currentQuestion} of ${totalQuestions}`;
-        }
-        
-        // ============================================
         // NAVIGATION
         // ============================================
+        function getSelectedTradeoffQuestions() {
+            return q2Selected
+                .map(priority => q2TradeoffQuestionMap[priority])
+                .filter(Boolean);
+        }
+
+        function getActiveQuestionPath() {
+            return [2, ...getSelectedTradeoffQuestions(), 21];
+        }
+
         function showQuestion(num) {
-            // Prevent showing Q21 if it shouldn't be shown
-            if (num === 21 && !showQ21) {
-                // If Q21 shouldn't be shown, go to Q20 instead
-                num = 20;
-            }
-            
             // Save Q1 data when leaving Q1 (moving to a different question)
             if (currentQuestion === 1 && num !== 1) {
                 triggerPartialSave();
@@ -1754,7 +1658,6 @@
             }
             
             currentQuestion = num;
-            updateProgress();
             
             // Update URL hash for easy testing/refreshing
             if (num === 0) {
@@ -1804,50 +1707,41 @@
         }
         
         function nextQuestion() {
-            // Handle Q21 separately - it's conditional
-            if (currentQuestion === 20 && showQ21) {
-                showQuestion(21);
-            } else if (currentQuestion < TOTAL_QUESTIONS) {
-                showQuestion(currentQuestion + 1);
+            if (currentQuestion === 0) {
+                showQuestion(2);
+                return;
+            }
+
+            const activePath = getActiveQuestionPath();
+            const currentIndex = activePath.indexOf(currentQuestion);
+
+            if (currentIndex === -1) {
+                showQuestion(2);
+                return;
+            }
+
+            if (currentQuestion === 2 && q2Selected.length === 0) {
+                alert('Please select at least one priority.');
+                return;
+            }
+
+            if (currentIndex < activePath.length - 1) {
+                showQuestion(activePath[currentIndex + 1]);
             }
         }
         
         function prevQuestion() {
-            if (currentQuestion > 0) {
-                // If on Q21, go back to Q20
-                if (currentQuestion === 21) {
-                    showQuestion(20);
-                } else {
-                    showQuestion(currentQuestion - 1);
-                }
+            if (currentQuestion === 0) {
+                return;
             }
-        }
-        
-        // ============================================
-        // Q20 CONDITIONAL LOGIC
-        // ============================================
-        function checkQ20AndProceed() {
-            const q20Selected = Array.from(document.querySelectorAll('input[name="q20"]:checked')).map(cb => cb.value);
-            
-            // Check if any option indicates willingness to support
-            const supportOptions = [
-                'Vote for me',
-                'Volunteer time to support the campaign',
-                'Make a small financial donation',
-                'Make a larger financial donation',
-                'Follow or share campaign information online'
-            ];
-            
-            const hasSupport = q20Selected.some(option => supportOptions.includes(option));
-            
-            if (hasSupport) {
-                showQ21 = true;
-                // Navigate to Q21 page
-                showQuestion(21);
+
+            const activePath = getActiveQuestionPath();
+            const currentIndex = activePath.indexOf(currentQuestion);
+
+            if (currentIndex > 0) {
+                showQuestion(activePath[currentIndex - 1]);
             } else {
-                showQ21 = false;
-                // Skip Q21 and submit directly
-                submitForm();
+                showQuestion(0);
             }
         }
         
@@ -2185,102 +2079,82 @@
             data.q3 = document.getElementById('q3').value.trim();
             
             // Q4-Q19: Radio buttons
+            const activeTradeoffQuestions = new Set(getSelectedTradeoffQuestions());
             for (let i = 4; i <= 19; i++) {
                 const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                data[`q${i}`] = selected ? selected.value : '';
+                data[`q${i}`] = activeTradeoffQuestions.has(i) && selected ? selected.value : '';
             }
             
-            // Q20: Checkboxes
-            const q20Selected = Array.from(document.querySelectorAll('input[name="q20"]:checked')).map(cb => cb.value);
-            data.q20 = q20Selected.join(' | ');
+            // Q20: Retained as an empty field for Google Sheets compatibility.
+            data.q20 = '';
             
-            // Q21: Contact information (if shown)
-            if (showQ21) {
-                data.q21_firstname = document.getElementById('q21_firstname').value.trim();
-                data.q21_lastname = document.getElementById('q21_lastname').value.trim();
-                data.q21_email = document.getElementById('q21_email').value.trim().toLowerCase();
-                // Store phone as digits only for consistency
-                const phoneValue = document.getElementById('q21_phone').value.replace(/\D/g, '');
-                data.q21_phone = phoneValue;
-                // Store postal code in standard format (A1A 1A1)
-                const postalValue = document.getElementById('q21_postal').value.replace(/\s/g, '').toUpperCase();
-                data.q21_postal = postalValue.length === 6 ? `${postalValue.substring(0, 3)} ${postalValue.substring(3)}` : postalValue;
-            } else {
-                data.q21_firstname = '';
-                data.q21_lastname = '';
-                data.q21_email = '';
-                data.q21_phone = '';
-                data.q21_postal = '';
-            }
+            // Q21: Contact information
+            data.q21_firstname = document.getElementById('q21_firstname').value.trim();
+            data.q21_lastname = document.getElementById('q21_lastname').value.trim();
+            data.q21_email = document.getElementById('q21_email').value.trim().toLowerCase();
+            // Store phone as digits only for consistency
+            const phoneValue = document.getElementById('q21_phone').value.replace(/\D/g, '');
+            data.q21_phone = phoneValue;
+            // Store postal code in standard format (A1A 1A1)
+            const postalValue = document.getElementById('q21_postal').value.replace(/\s/g, '').toUpperCase();
+            data.q21_postal = postalValue.length === 6 ? `${postalValue.substring(0, 3)} ${postalValue.substring(3)}` : postalValue;
             
             return data;
         }
         
         async function submitForm() {
-            // Validate Q21 if shown (it's part of Q20, not a separate form)
-            if (showQ21) {
-                const firstName = document.getElementById('q21_firstname');
-                const lastName = document.getElementById('q21_lastname');
-                const email = document.getElementById('q21_email');
-                const phone = document.getElementById('q21_phone');
-                const postal = document.getElementById('q21_postal');
+            const firstName = document.getElementById('q21_firstname');
+            const lastName = document.getElementById('q21_lastname');
+            const email = document.getElementById('q21_email');
+            const phone = document.getElementById('q21_phone');
+            const postal = document.getElementById('q21_postal');
                 
-                // Check if any fields are filled (partial completion)
-                const hasAnyField = firstName.value.trim() || lastName.value.trim() || email.value.trim() || phone.value.trim() || postal.value.trim();
-                const hasAllFields = firstName.value.trim() && lastName.value.trim() && email.value.trim() && phone.value.trim() && postal.value.trim();
+            // Check if any fields are filled (partial completion)
+            const hasAnyField = firstName.value.trim() || lastName.value.trim() || email.value.trim() || phone.value.trim() || postal.value.trim();
+            const hasAllFields = firstName.value.trim() && lastName.value.trim() && email.value.trim() && phone.value.trim() && postal.value.trim();
                 
-                // If some but not all fields are filled, show warning
-                if (hasAnyField && !hasAllFields) {
-                    const proceed = confirm('You have partially filled the contact information. Would you like to submit without completing all fields? You can always provide this information later.');
-                    if (!proceed) {
-                        // Focus on first empty field
-                        if (!firstName.value.trim()) firstName.focus();
-                        else if (!lastName.value.trim()) lastName.focus();
-                        else if (!email.value.trim()) email.focus();
-                        else if (!phone.value.trim()) phone.focus();
-                        else if (!postal.value.trim()) postal.focus();
-                        return;
-                    }
+            // If some but not all fields are filled, show warning
+            if (hasAnyField && !hasAllFields) {
+                const proceed = confirm('You have partially filled the contact information. Would you like to submit without completing all fields? You can always provide this information later.');
+                if (!proceed) {
+                    // Focus on first empty field
+                    if (!firstName.value.trim()) firstName.focus();
+                    else if (!lastName.value.trim()) lastName.focus();
+                    else if (!email.value.trim()) email.focus();
+                    else if (!phone.value.trim()) phone.focus();
+                    else if (!postal.value.trim()) postal.focus();
+                    return;
                 }
+            }
                 
-                // If no fields are filled, show warning but allow submission
-                if (!hasAnyField) {
-                    const proceed = confirm('You haven\'t provided contact information. Without this, we won\'t be able to reach you about volunteering, donations, or campaign updates. Are you sure you want to submit without contact information?');
-                    if (!proceed) {
-                        firstName.focus();
-                        return;
-                    }
+            // Validate formats only if fields are filled
+            if (email.value.trim()) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email.value.trim())) {
+                    alert('Please enter a valid email address (e.g., name@example.com) or leave it blank.');
+                    email.focus();
+                    return;
                 }
+            }
                 
-                // Validate formats only if fields are filled
-                if (email.value.trim()) {
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(email.value.trim())) {
-                        alert('Please enter a valid email address (e.g., name@example.com) or leave it blank.');
-                        email.focus();
-                        return;
-                    }
+            if (phone.value.trim()) {
+                // Validate phone number format (Canadian: 10 digits)
+                const phoneValue = phone.value.replace(/\D/g, '');
+                if (phoneValue.length !== 10) {
+                    alert('Please enter a valid Canadian phone number (10 digits, e.g., (416) 555-1234) or leave it blank.');
+                    phone.focus();
+                    return;
                 }
+            }
                 
-                if (phone.value.trim()) {
-                    // Validate phone number format (Canadian: 10 digits)
-                    const phoneValue = phone.value.replace(/\D/g, '');
-                    if (phoneValue.length !== 10) {
-                        alert('Please enter a valid Canadian phone number (10 digits, e.g., (416) 555-1234) or leave it blank.');
-                        phone.focus();
-                        return;
-                    }
-                }
-                
-                if (postal.value.trim()) {
-                    // Validate postal code format (Canadian: A1A 1A1)
-                    const postalValue = postal.value.replace(/\s/g, '').toUpperCase();
-                    const postalPattern = /^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$/;
-                    if (!postalPattern.test(postalValue)) {
-                        alert('Please enter a valid Canadian postal code (e.g., M5H 2N2) or leave it blank.');
-                        postal.focus();
-                        return;
-                    }
+            if (postal.value.trim()) {
+                // Validate postal code format (Canadian: A1A 1A1)
+                const postalValue = postal.value.replace(/\s/g, '').toUpperCase();
+                const postalPattern = /^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$/;
+                if (!postalPattern.test(postalValue)) {
+                    alert('Please enter a valid Canadian postal code (e.g., M5H 2N2) or leave it blank.');
+                    postal.focus();
+                    return;
                 }
             }
             
@@ -2321,7 +2195,7 @@
             // But the data should still be submitted
         }
         
-        // Silent partial save function - saves progress without interrupting user
+        // Silent partial save function - saves responses without interrupting user
         async function savePartialData() {
             try {
                 const data = collectAllData();
